@@ -27,7 +27,7 @@ fun App() {
         val greeting = remember { Greeting().greet() }
         Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
             QButton(
-                text = "QButton",
+                text = "QButton Auto",
                 onClick = { showContent = !showContent },
                 colors = ButtonDefaults.buttonColors(
                     containerColor = Color(0xff6200EE) //colorResource(id = R.color.purple_500)
