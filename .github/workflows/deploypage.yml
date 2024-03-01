@@ -15,36 +15,36 @@ jobs:
         with:
           ref: main
 
-      - name: Set up JDK
-        uses: actions/setup-java@v2
-        with:
-          distribution: 'adopt'
-          java-version: '17'
-
-      - name: Setup Gradle
-        uses: gradle/gradle-build-action@v2
-
-      - name: Build with Gradle
-        run: ./gradlew wasmJsBrowserDistribution
-
-      - name: Checkout target branch
-        uses: actions/checkout@v2
-        with:
-          ref: 'gh-pages'
-
-      - name: Copy files
-        run: |
-          cp -R composeApp/build/dist/wasmJs/productionExecutable/* .
-
-      - name: Commit changes
-        run: |
-          git config --global user.name 'GitHub Actions'
-          git config --global user.email 'actions@users.noreply.github.com'
-          git add .
-          git commit -m "Update generated files"
-
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: gh-pages
+#      - name: Set up JDK
+#        uses: actions/setup-java@v2
+#        with:
+#          distribution: 'adopt'
+#          java-version: '17'
+#
+#      - name: Setup Gradle
+#        uses: gradle/gradle-build-action@v2
+#
+#      - name: Build with Gradle
+#        run: ./gradlew wasmJsBrowserDistribution
+#
+#      - name: Checkout target branch
+#        uses: actions/checkout@v2
+#        with:
+#          ref: 'gh-pages'
+#
+#      - name: Copy files
+#        run: |
+#          cp -R composeApp/build/dist/wasmJs/productionExecutable/* .
+#
+#      - name: Commit changes
+#        run: |
+#          git config --global user.name 'GitHub Actions'
+#          git config --global user.email 'actions@users.noreply.github.com'
+#          git add .
+#          git commit -m "Update generated files"
+#
+#      - name: Push changes
+#        uses: ad-m/github-push-action@master
+#        with:
+#          github_token: ${{ secrets.GITHUB_TOKEN }}
+#          branch: gh-pages
