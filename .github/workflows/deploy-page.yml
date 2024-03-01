@@ -35,6 +35,8 @@ jobs:
 
       - name: Copy files
         run: |
+          pwd
+          ls
           cp -R ./composeApp/build/dist/wasmJs/productionExecutable/* .
 
       - name: Commit changes
