@@ -18,7 +18,7 @@ class DashboardViewModel(
 
     fun onElementClick(clickedItem: SelectableUiElement) {
         _uiElements.value = uiElementRepo.getUiElements().toSelectableUiElements().map {
-            if(it.uiElement == clickedItem.uiElement) it.copy(isSelected = clickedItem.isSelected) else it
+            if(it.uiElement == clickedItem.uiElement) it.copy(isSelected = clickedItem.isSelected.not()) else it
         }.toImmutableList()
     }
 }
