@@ -21,7 +21,7 @@ fun Dashboard(viewModel: DashboardViewModel) {
     val selectedElement = uiElements.firstOrNull { it.isSelected }?.uiElement
 
     Row(modifier = Modifier.fillMaxSize()) {
-        LazyColumn(modifier = Modifier.fillMaxHeight().weight(1f)) {
+        LazyColumn(modifier = Modifier.fillMaxHeight().width(100.dp)) {
             items(items = uiElements, key = { it.uiElement.name }) { item ->
                 val itemBackgroundColor = if (item.isSelected) {
                     Color.Magenta
