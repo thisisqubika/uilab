@@ -42,11 +42,11 @@ fun Dashboard(viewModel: DashboardViewModel) {
                 )
             }
         }
-        Box(modifier = Modifier.fillMaxHeight().weight(1f)) {
-            when(selectedElement) {
-                UiElement.BUTTON -> QButtonScreen()
-                null -> TODO()
-            }
+        Box(modifier = Modifier.fillMaxHeight().weight(1f).background(Color.Red)) {
+//            when(selectedElement) {
+//                UiElement.BUTTON -> QButtonScreen()
+//                null -> TODO()
+//            }
         }
     }
 }
