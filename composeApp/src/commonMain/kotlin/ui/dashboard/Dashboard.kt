@@ -1,10 +1,13 @@
 package ui.dashboard
 
+import QButton
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -46,12 +49,23 @@ fun Dashboard(viewModel: DashboardViewModel) {
             }
         }
         Box(modifier = Modifier.fillMaxHeight().weight(1f).background(Color.Red)) {
-//            when(selectedElement) {
-//                UiElement.BUTTON -> QButtonScreen()
-//                null -> {
-//
-//                }
-//            }
+            when (selectedElement) {
+                UiElement.BUTTON -> {
+                    QButton(
+                        text = "QButton",
+                        onClick = { },
+                        colors = ButtonDefaults.buttonColors(
+                            containerColor = Color(0xff6200EE) //colorResource(id = R.color.purple_500)
+                        ),
+                        shape = RoundedCornerShape(16.dp, 1.dp, 16.dp, 1.dp)
+                    )
+                }
+
+                null -> {
+
+                }
+            }
         }
+        Column(modifier = Modifier.fillMaxHeight().width(200.dp)) { }
     }
 }
