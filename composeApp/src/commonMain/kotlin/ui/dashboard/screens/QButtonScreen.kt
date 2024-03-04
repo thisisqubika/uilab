@@ -11,7 +11,7 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun QButtonScreen() {
-    Row(modifier = Modifier.fillMaxSize()) {
+    Row {
         Box(modifier = Modifier.fillMaxHeight().weight(1f)) {
             QButton(
                 text = "QButton",
@@ -22,6 +22,6 @@ fun QButtonScreen() {
                 shape = RoundedCornerShape(16.dp, 1.dp, 16.dp, 1.dp)
             )
         }
-        Column(modifier = Modifier.fillMaxHeight().width(100.dp)) {  }
+        Column(modifier = Modifier.fillMaxHeight().width(200.dp)) {  }
     }
 }

@@ -49,6 +49,7 @@ kotlin {
             implementation(compose.components.uiToolingPreview)
 
             implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.0")
+            implementation("org.jetbrains.kotlinx:kotlinx-collections-immutable:0.3.7")
         }
     }
 }

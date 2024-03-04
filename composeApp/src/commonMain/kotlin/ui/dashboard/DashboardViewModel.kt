@@ -1,5 +1,6 @@
 package ui.dashboard
 
+import kotlinx.collections.immutable.toImmutableList
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import model.SelectableUiElement
@@ -12,12 +13,12 @@ class DashboardViewModel(
 ) {
 
     private val _uiElements: MutableStateFlow<List<SelectableUiElement>> =
-        MutableStateFlow(uiElementRepo.getUiElements().toSelectableUiElements())
+        MutableStateFlow(uiElementRepo.getUiElements().toSelectableUiElements().toImmutableList())
     val uiElements: StateFlow<List<SelectableUiElement>> get() = _uiElements
 
-    fun onElementClick(uiElement: UiElement) {
+    fun onElementClick(clickedItem: SelectableUiElement) {
         _uiElements.value = uiElementRepo.getUiElements().toSelectableUiElements().map {
-            if(it.uiElement == uiElement) it.copy(isSelected = it.isSelected.not()) else it
-        }
+            if(it.uiElement == clickedItem.uiElement) it.copy(isSelected = clickedItem.isSelected) else it
+        }.toImmutableList()
     }
 }

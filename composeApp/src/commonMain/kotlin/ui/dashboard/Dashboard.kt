@@ -21,7 +21,7 @@ fun Dashboard(viewModel: DashboardViewModel) {
     val selectedElement = uiElements.firstOrNull { it.isSelected }?.uiElement
 
     Row(modifier = Modifier.fillMaxSize()) {
-        LazyColumn(modifier = Modifier.fillMaxHeight().width(100.dp)) {
+        LazyColumn(modifier = Modifier.fillMaxHeight().width(200.dp)) {
             items(items = uiElements, key = { it.uiElement.name }) { item ->
                 val itemBackgroundColor = if (item.isSelected) {
                     Color.Magenta
@@ -35,18 +35,21 @@ fun Dashboard(viewModel: DashboardViewModel) {
                 }
                 Text(
                     modifier = Modifier.clickable {
-                        viewModel.onElementClick(item.uiElement)
-                    }.padding(16.dp).background(itemBackgroundColor),
+                        viewModel.onElementClick(item)
+                    }
+                        .background(itemBackgroundColor)
+                        .fillMaxWidth()
+                        .padding(8.dp),
                     text = item.uiElement.name.lowercase().replaceFirstChar(Char::uppercase),
                     color = itemTextColor
                 )
             }
         }
         Box(modifier = Modifier.fillMaxHeight().weight(1f).background(Color.Red)) {
-//            when(selectedElement) {
-//                UiElement.BUTTON -> QButtonScreen()
-//                null -> TODO()
-//            }
+            when(selectedElement) {
+                UiElement.BUTTON -> QButtonScreen()
+                null -> TODO()
+            }
         }
     }
 }
