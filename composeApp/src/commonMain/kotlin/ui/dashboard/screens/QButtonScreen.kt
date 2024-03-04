@@ -1,6 +1,7 @@
 package ui.dashboard.screens
 
 import QButton
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.ButtonDefaults
@@ -11,8 +12,8 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun QButtonScreen() {
-    Row {
-        Box(modifier = Modifier.fillMaxHeight().weight(1f)) {
+    Row(modifier = Modifier.background(Color.Green).fillMaxHeight()) {
+        Box(modifier = Modifier.background(Color.Blue).fillMaxHeight().weight(1f)) {
             QButton(
                 text = "QButton",
                 onClick = {  },
