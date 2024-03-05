@@ -9,20 +9,23 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import ui.components.PhoneFrame
 
 @Composable
 fun QButtonScreen() {
-    Row(modifier = Modifier.background(Color.Green).fillMaxSize()) {
-        Box(modifier = Modifier.background(Color.Blue).fillMaxHeight().weight(1f)) {
-            QButton(
-                text = "QButton",
-                onClick = {  },
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = Color(0xff6200EE) //colorResource(id = R.color.purple_500)
-                ),
-                shape = RoundedCornerShape(16.dp, 1.dp, 16.dp, 1.dp)
-            )
+    Row(modifier = Modifier.fillMaxSize()) {
+        Box(modifier = Modifier.fillMaxHeight().weight(1f)) {
+            PhoneFrame {
+                QButton(
+                    text = "QButton",
+                    onClick = {  },
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = Color(0xff6200EE) //colorResource(id = R.color.purple_500)
+                    ),
+                    shape = RoundedCornerShape(16.dp, 1.dp, 16.dp, 1.dp)
+                )
+            }
         }
-        Column(modifier = Modifier.fillMaxHeight().width(200.dp)) {  }
+        Column(modifier = Modifier.fillMaxHeight().width(300.dp).background(Color.White)) {  }
     }
 }
