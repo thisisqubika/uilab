@@ -11,9 +11,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import model.UiElementRepo
 import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
+import ui.dashboard.Dashboard
+import ui.dashboard.DashboardViewModel
 
 import uilab.composeapp.generated.resources.Res
 import uilab.composeapp.generated.resources.compose_multiplatform
@@ -23,23 +26,28 @@ import uilab.composeapp.generated.resources.compose_multiplatform
 @Preview
 fun App() {
     MaterialTheme {
-        var showContent by remember { mutableStateOf(false) }
-        val greeting = remember { Greeting().greet() }
-        Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
-            QButton(
-                text = "QButton",
-                onClick = { showContent = !showContent },
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = Color(0xff6200EE) //colorResource(id = R.color.purple_500)
-                ),
-                shape = RoundedCornerShape(16.dp, 1.dp, 16.dp, 1.dp)
+        Dashboard(
+            DashboardViewModel(
+                UiElementRepo
             )
-            AnimatedVisibility(showContent) {
-                Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
-                    Image(painterResource(Res.drawable.compose_multiplatform), null)
-                    Text("Compose: $greeting")
-                }
-            }
-        }
+        )
+//        var showContent by remember { mutableStateOf(false) }
+//        val greeting = remember { Greeting().greet() }
+//        Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
+//            QButton(
+//                text = "QButton",
+//                onClick = { showContent = !showContent },
+//                colors = ButtonDefaults.buttonColors(
+//                    containerColor = Color(0xff6200EE) //colorResource(id = R.color.purple_500)
+//                ),
+//                shape = RoundedCornerShape(16.dp, 1.dp, 16.dp, 1.dp)
+//            )
+//            AnimatedVisibility(showContent) {
+//                Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
+//                    Image(painterResource(Res.drawable.compose_multiplatform), null)
+//                    Text("Compose: $greeting")
+//                }
+//            }
+//        }
     }
 }

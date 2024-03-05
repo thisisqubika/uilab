@@ -51,14 +51,7 @@ fun Dashboard(viewModel: DashboardViewModel) {
         Box(modifier = Modifier.fillMaxHeight().weight(1f).background(Color.Red)) {
             when (selectedElement) {
                 UiElement.BUTTON -> {
-                    QButton(
-                        text = "QButton",
-                        onClick = { },
-                        colors = ButtonDefaults.buttonColors(
-                            containerColor = Color(0xff6200EE) //colorResource(id = R.color.purple_500)
-                        ),
-                        shape = RoundedCornerShape(16.dp, 1.dp, 16.dp, 1.dp)
-                    )
+                    QButtonScreen()
                 }
 
                 null -> {
@@ -66,6 +59,5 @@ fun Dashboard(viewModel: DashboardViewModel) {
                 }
             }
         }
-        Column(modifier = Modifier.fillMaxHeight().width(200.dp)) { }
     }
 }

@@ -12,7 +12,7 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun QButtonScreen() {
-    Row(modifier = Modifier.background(Color.Green).fillMaxHeight()) {
+    Row(modifier = Modifier.background(Color.Green).fillMaxSize()) {
         Box(modifier = Modifier.background(Color.Blue).fillMaxHeight().weight(1f)) {
             QButton(
                 text = "QButton",
